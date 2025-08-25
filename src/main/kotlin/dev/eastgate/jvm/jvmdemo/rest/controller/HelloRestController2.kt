@@ -2,17 +2,17 @@ package dev.eastgate.jvm.jvmdemo.rest.controller
 
 import dev.eastgate.jvm.jvmdemo.service.DemoService
 import org.slf4j.LoggerFactory
-import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
 
-@Controller
-class HelloController2(
+@RestController
+class HelloRestController2(
     private val demoService: DemoService,
 ) {
     private val logger = LoggerFactory.getLogger(HelloController::class.java)
 
-    @GetMapping("/hello2")
+    @GetMapping("/rest-hello2")
     fun hello(@RequestParam username: String, @RequestParam age: Int): String {
         val title = "Hello World"
 

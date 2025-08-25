@@ -4,20 +4,20 @@ import dev.eastgate.jvm.jvmdemo.dto.User;
 import dev.eastgate.jvm.jvmdemo.service.DemoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-public class JavaHelloController2 {
-    private final Logger logger = LoggerFactory.getLogger(JavaHelloController2.class);
+@RestController
+public class JavaHelloRestController2 {
+    private final Logger logger = LoggerFactory.getLogger(JavaHelloRestController2.class);
     private final DemoService demoService;
 
-    public JavaHelloController2(DemoService demoService) {
+    public JavaHelloRestController2(DemoService demoService) {
         this.demoService = demoService;
     }
 
-    @GetMapping("/java-hello2")
+    @GetMapping("/java-rest-hello2")
     public String hello(@RequestParam String username, @RequestParam int age) {
         String title = "Hello World";
 

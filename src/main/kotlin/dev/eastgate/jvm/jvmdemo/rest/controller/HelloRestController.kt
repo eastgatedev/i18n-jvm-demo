@@ -2,18 +2,22 @@ package dev.eastgate.jvm.jvmdemo.rest.controller
 
 import dev.eastgate.jvm.jvmdemo.service.DemoService
 import org.slf4j.LoggerFactory
-import org.springframework.stereotype.Controller
+import org.springframework.context.MessageSource
+import org.springframework.context.i18n.LocaleContextHolder
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
 
-@Controller
-class HelloController2(
+@RestController
+class HelloRestController(
     private val demoService: DemoService,
+    private val messageSource: MessageSource
 ) {
-    private val logger = LoggerFactory.getLogger(HelloController::class.java)
+    private val logger = LoggerFactory.getLogger(HelloRestController::class.java)
 
-    @GetMapping("/hello2")
+    @GetMapping("/rest-hello")
     fun hello(@RequestParam username: String, @RequestParam age: Int): String {
+        val locale = LocaleContextHolder.getLocale()
         val title = "Hello World"
 
         val user = object {
